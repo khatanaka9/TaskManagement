@@ -13,12 +13,14 @@ public class Todo extends Model {
 	private final boolean endFlag;
 
 	@ManyToOne
-	private Project project;
+	private final Project project;
 
 	@Embedded
 	private final TodoName todoName;
 
-	public Todo(final TodoName todoName, final boolean endFlag) {
+	public Todo(final Project project, final TodoName todoName,
+			final boolean endFlag) {
+		this.project = project;
 		this.todoName = todoName;
 		this.endFlag = endFlag;
 	}
