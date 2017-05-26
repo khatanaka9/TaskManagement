@@ -1,4 +1,4 @@
-package models.base;
+package models.base.collection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
