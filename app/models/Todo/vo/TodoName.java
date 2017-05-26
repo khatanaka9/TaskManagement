@@ -1,11 +1,21 @@
 package models.Todo.vo;
 
-public class TodoName {
+import javax.persistence.*;
 
-	public String todoName;
+import models.base.vo.*;
+
+public class TodoName extends AbstractStringValueObject {
+
+	@Column(name = "todoName", nullable = false, length = 255, columnDefinition = "nvarchar(255)")
+	private final String todoName;
 
 	public TodoName(final String todoname) {
 		this.todoName = todoname;
+	}
+
+	@Override
+	public String value() {
+		return todoName;
 	}
 
 }

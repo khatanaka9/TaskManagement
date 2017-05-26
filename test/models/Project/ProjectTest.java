@@ -24,7 +24,7 @@ public class ProjectTest extends UnitTest {
 	public void testConstructor() {
 
 		final Project project = new Project(projectname, false).save();
-		final List<Project> project1 = Project.findAll();
+		final List<Project> project1 = project.findAll();
 
 		// 1件のみのはず
 		assertThat(project1.size(), is(1));
