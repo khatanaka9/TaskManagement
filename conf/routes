@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                                       ProjectControllers.index
+# 初期画面にプロジェクト一覧画面を表示
+GET     /                                       ProjectControllers.projectList
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
