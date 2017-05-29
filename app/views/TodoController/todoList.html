@@ -1,20 +1,25 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>プロジェクト一覧画面</h3>
+<h3>タスク一覧画面</h3>
 
 #{if projectList}
+
 <table border=1>
 	<tr>
 		<th width=30></th>
-		<th>案件名</th>
+		<th>タスク名</th>
 		<th>完了フラグ</th>
+		<th>内容</th>
 	</tr>
-	#{list items:projectList, as:'project'}
+	#{list todoList, as:'todo'}
 	<tr>
 		<th></th>
-		<th>${project.projectName.value()}</th>
-		<th>#{if project.endFlag} 完了 #{/if} #{if !project.endFlag} 未完了
+		<th>
+				${todo.todoName.value()}</th>
+		<th>#{if todo.endFlag} 完了 #{/if} #{if !todo.endFlag} 未完了
 			#{/if}</th>
+		<th>
+		${todo.content.value()}</th>
 
 	</tr>
 	#{/list}
@@ -23,8 +28,3 @@
 #{/if} #{else}
 <h2>データがありません</h2>
 #{/else}
-
-
-
-
-

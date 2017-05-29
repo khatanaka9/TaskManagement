@@ -1,0 +1,32 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+
+<h3>プロジェクト一覧画面</h3>
+
+#{if projectList}
+<table border=1>
+	<tr>
+		<th width=30></th>
+		<th>案件名</th>
+		<th>完了フラグ</th>
+	</tr>
+	#{list items:projectList, as:'project'}
+	<tr>
+		<th></th>
+		<th>
+		 <a href="@{TodoController.TodoList(project.id)}">
+		${project.projectName.value()}</a></th>
+		<th>#{if project.endFlag} 完了 #{/if} #{if !project.endFlag} 未完了
+			#{/if}</th>
+
+	</tr>
+	#{/list}
+
+</table>
+#{/if} #{else}
+<h2>データがありません</h2>
+#{/else}
+
+
+
+
+
