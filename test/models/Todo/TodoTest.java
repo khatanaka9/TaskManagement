@@ -31,7 +31,7 @@ public class TodoTest extends UnitTest {
 	@Test
 	public void testConstructor() {
 
-		final Todo todo = new Todo(project, todoname, false).save();
+		final Todo todo = new Todo(project, todoname, false, "内容").save();
 		final List<Todo> todo1 = todo.findAll();
 
 		assertThat(todo1.size(), is(1));

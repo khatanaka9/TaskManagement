@@ -12,6 +12,9 @@ public class Todo extends Model {
 	@Column(name = "endFlag")
 	private final boolean endFlag;
 
+	@Column(name = "content")
+	private final String content;
+
 	@ManyToOne
 	private final Project project;
 
@@ -19,9 +22,10 @@ public class Todo extends Model {
 	private final TodoName todoName;
 
 	public Todo(final Project project, final TodoName todoName,
-			final boolean endFlag) {
+			final boolean endFlag, final String content) {
 		this.project = project;
 		this.todoName = todoName;
 		this.endFlag = endFlag;
+		this.content = content;
 	}
 }
