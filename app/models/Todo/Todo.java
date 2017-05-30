@@ -15,8 +15,8 @@ public class Todo extends Model {
 
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "project")
-	@Index(name = "idx_Project")
-	@ForeignKey(name = "fk_Project")
+	@Index(name = "idx_ProjectId")
+	@ForeignKey(name = "fk_ProjectId")
 	private final Project project;
 
 	@Column(name = "endFlag")
@@ -28,7 +28,7 @@ public class Todo extends Model {
 	private final TodoContent todoContent;
 
 	public Todo(final Project project, final TodoName todoName,
-			final boolean endFlag, final TodoContent todoContent) {
+			final TodoContent todoContent) {
 		this.project = project;
 		this.todoName = todoName;
 		this.todoContent = todoContent;

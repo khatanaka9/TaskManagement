@@ -14,7 +14,7 @@ public class Project extends Model {
 	@Embedded
 	private final ProjectName projectName;
 
-	public Project(final ProjectName projectName, final Boolean endFlag) {
+	public Project(final ProjectName projectName) {
 		this.projectName = projectName;
 	}
 
