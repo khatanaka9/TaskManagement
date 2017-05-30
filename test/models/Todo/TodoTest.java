@@ -26,14 +26,14 @@ public class TodoTest extends UnitTest {
 		projectname = new ProjectName("案件1");
 		content = new TodoContent("内容");
 
-		project = new Project(projectname, false).save();
+		project = new Project(projectname).save();
 
 	}
 
 	@Test
 	public void testConstructor() {
 
-		final Todo todo = new Todo(project, todoname, false, content).save();
+		final Todo todo = new Todo(project, todoname, content).save();
 		final List<Todo> todo1 = todo.findAll();
 
 		assertThat(todo1.size(), is(1));

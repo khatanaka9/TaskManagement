@@ -1,8 +1,16 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>プロジェクト一覧画面</h3>
+<h3>プロジェクト一覧</h3>
 
 #{if projectList}
+
+
+<div>
+        <a href="@{NewProjectController.newProject()}">
+        <input type="button" name="NewProject" id="NewProject" value="新規登録"}" />
+           </a>
+</div>
+
 <table border=1>
 	<tr>
 		<th width=30></th>
@@ -13,7 +21,7 @@
 	<tr>
 		<th></th>
 		<th>
-		 <a href="@{TodoController.TodoList(project.id)}">
+		 <a href="@{TodoController.todoList(project.id)}">
 		${project.projectName.value()}</a></th>
 		<th>#{if project.endFlag} 完了 #{/if} #{if !project.endFlag} 未完了
 			#{/if}</th>
@@ -22,6 +30,9 @@
 	#{/list}
 
 </table>
+
+
+
 #{/if} #{else}
 <h2>データがありません</h2>
 #{/else}

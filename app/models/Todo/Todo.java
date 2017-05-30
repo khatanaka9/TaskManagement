@@ -15,8 +15,8 @@ public class Todo extends Model {
 
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "project")
-	@Index(name = "idx_ProjectId")
-	@ForeignKey(name = "fk_ProjectId")
+	@Index(name = "idx_Todo_projectId")
+	@ForeignKey(name = "fk_Todo_projectId")
 	private final Project project;
 
 	@Column(name = "endFlag")

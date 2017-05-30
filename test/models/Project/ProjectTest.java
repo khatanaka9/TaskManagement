@@ -23,7 +23,7 @@ public class ProjectTest extends UnitTest {
 	@Test
 	public void testConstructor() {
 
-		final Project project = new Project(projectname, false).save();
+		final Project project = new Project(projectname).save();
 		final List<Project> project1 = project.findAll();
 
 		// 1件のみのはず
