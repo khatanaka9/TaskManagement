@@ -9,14 +9,13 @@ import play.db.jpa.*;
 public class Project extends Model {
 
 	@Column(name = "endFlag")
-	private final boolean endFlag;
+	private final boolean endFlag = false;
 
 	@Embedded
 	private final ProjectName projectName;
 
 	public Project(final ProjectName projectName, final Boolean endFlag) {
 		this.projectName = projectName;
-		this.endFlag = endFlag;
 	}
 
 }

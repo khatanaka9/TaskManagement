@@ -15,23 +15,22 @@ public class Todo extends Model {
 
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "project")
-	@Index(name = "idx_Project_userId")
-	@ForeignKey(name = "fk_Project_Users")
+	@Index(name = "idx_Project")
+	@ForeignKey(name = "fk_Project")
 	private final Project project;
 
 	@Column(name = "endFlag")
-	private final boolean endFlag;
+	private final boolean endFlag = false;
 
 	@Embedded
 	private final TodoName todoName;
 	@Embedded
-	private final String content;
+	private final TodoContent todoContent;
 
 	public Todo(final Project project, final TodoName todoName,
-			final boolean endFlag, final String content) {
+			final boolean endFlag, final TodoContent todoContent) {
 		this.project = project;
 		this.todoName = todoName;
-		this.endFlag = endFlag;
-		this.content = content;
+		this.todoContent = todoContent;
 	}
 }
