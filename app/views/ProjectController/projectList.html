@@ -4,12 +4,12 @@
 
 #{if projectList}
 
-
 <div>
-        <a href="@{NewProjectController.newProject()}">
-        <input type="button" name="NewProject" id="NewProject" value="新規登録"}" />
+        <a href="@{ProjectController.projectCreate()}">
+        <input type="Button" name="NewProject" id="NewProject" value="新規登録"}" />
            </a>
 </div>
+
 
 <table border=1>
 	<tr>
@@ -25,6 +25,11 @@
 		${project.projectName.value()}</a></th>
 		<th>#{if project.endFlag} 完了 #{/if} #{if !project.endFlag} 未完了
 			#{/if}</th>
+
+		<th>
+		<a href="@{ProjectController.updateProject(project.id)}">
+		<input type="Button" name="UpdateProject" id="UpdateProject" value="編集"}" /></a>
+		</th>
 
 	</tr>
 	#{/list}

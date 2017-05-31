@@ -6,10 +6,13 @@
 GET     /                                       Application.index
 
 # 初期画面にプロジェクト一覧画面を表示
-GET     /projectList                             ProjectController.projectList
-GET     /project/{<[0-9]+>projectid}/todoList   TodoController.TodoList
-GET     /newproject                              NewProjectController.newproject
-POST    /newproject                              NewProjectController.newProjectRegistration
+GET     /projectList                                ProjectController.projectList
+GET     /project/{<[0-9]+>projectid}/todoList       TodoController.TodoList
+GET     /create                                 ProjectController.projectCreate
+POST    /create/Registration                    ProjectController.createRegistration
+GET     /project/{<[0-9]+>projectid}/updateproject  ProjectController.updateProject
+POST    /update                                     ProjectController.updateExec
+POST    /todoCreate                                 TodoController.createRegistration
 
 
 # Ignore favicon requests

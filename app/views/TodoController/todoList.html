@@ -2,7 +2,15 @@
 
 <h3>タスク一覧</h3>
 
-#{if projectList}
+${todoList.project}
+
+<div>
+        <a href="@{TodoController.TodoCreate(todoList.project)}">
+        <input type="Button" name="NewTodo" id="NewTodo" value="新規登録"}" />
+           </a>
+</div>
+
+
 
 <table border=1>
 	<tr>
@@ -19,7 +27,12 @@
 		<th>#{if todo.endFlag} 完了 #{/if} #{if !todo.endFlag} 未完了
 			#{/if}</th>
 		<th>
-		${todo.content.value()}</th>
+		${todo.todoContent.value()}</th>
+
+		<th>
+        <a href="@{TodoController.Todoupdate(todoList.id)}">
+        <input type="Button" name="UpdateTodo" id="UpdateTodo" value="編集"}" /></a>
+        </th>
 
 	</tr>
 	#{/list}

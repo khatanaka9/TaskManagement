@@ -1,0 +1,22 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+
+<h3>タスク新規登録</h3>
+
+
+<form action = "@{TodoController.createRegistration()}"  method= "POST">
+
+
+
+        <label for="TodoName">タスク名: </label>
+        <input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
+<div>
+        <label for="TodoContent">タスク内容: </label>
+        <input type="textarea" name="todoContent" id="todoContent"  placeholder="タスク内容を入れてください" required/>
+<div>
+        <input type="submit" name="TodoCreate" id="TodoCreate" value="登録する"}" />
+        <input type="reset" name="Todoreset" id="Todoreset" value="取り消し"}" />
+
+<!-- TODO 戻るボタン追加 -->
+
+</div>
+</form>
