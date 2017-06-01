@@ -15,6 +15,15 @@ public class ProjectController extends Controller {
 		render(projectList);
 	}
 
+	private static Project getProject(final Long projectId) {
+		final Project project = Project.findById(projectId);
+		if (project == null) {
+			throw new RuntimeException(String.format(
+					"案件が取得できません。[projectId : %s]", projectId));
+		}
+		return project;
+	}
+
 	// プロジェクト新規登録画面
 	public static void create() {
 		render();
@@ -32,8 +41,7 @@ public class ProjectController extends Controller {
 
 	// プロジェクト編集画面
 	public static void update(final Long projectId) {
-		final Project project = Project.findById(projectId);
-		System.out.println(projectId);
+		final Project project = getProject(projectId);
 		render(project);
 	}
 
@@ -41,7 +49,7 @@ public class ProjectController extends Controller {
 	public static void updateExec(final Long projectId,
 			final String projectName, final boolean endFlag) {
 
-		final Project project = Project.findById(projectId);
+		final Project project = getProject(projectId);
 
 		project.projectName(new ProjectName(projectName));
 		project.endFlag(endFlag);

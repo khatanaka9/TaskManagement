@@ -42,7 +42,7 @@ public class TodoController extends Controller {
 	public static void createRegistration(final Long projectId,
 			final String todoName, final String todoContent) {
 
-		final Project project = Project.findById(projectId);
+		final Project project = getProject(projectId);
 		final TodoName todoname = new TodoName(todoName);
 		final TodoContent todocontent = new TodoContent(todoContent);
 
@@ -62,8 +62,7 @@ public class TodoController extends Controller {
 		// TODO hatanaka 作成中
 		System.out.println(projectId);
 
-		final Project project = Project.findById(projectId);
-
+		final Project project = getProject(projectId);
 		project.save();
 
 		ProjectController.projectList();
