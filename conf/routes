@@ -10,7 +10,7 @@ GET     /projectList                                ProjectController.projectLis
 # プロジェクト登録画面を表示
 GET     /project/create                             ProjectController.create
 # プロジェクト登録処理を実施
-POST    /project/create/Registration                ProjectController.createRegistration
+POST    /project/createExec                        ProjectController.createExec
 # プロジェクト編集画面を表示
 GET     /project/{<[0-9]+>projectId}/update         ProjectController.update
 # プロジェクト編集処理を実施

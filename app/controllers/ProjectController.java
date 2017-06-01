@@ -21,7 +21,7 @@ public class ProjectController extends Controller {
 	}
 
 	// プロジェクト新規登録処理
-	public static void createRegistration(final String projectName) {
+	public static void createExec(final String projectName) {
 
 		final ProjectName projectname = new ProjectName(projectName);
 
