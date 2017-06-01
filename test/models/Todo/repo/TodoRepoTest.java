@@ -15,30 +15,29 @@ import play.test.*;
 
 public class TodoRepoTest extends UnitTest {
 
-	private TodoName todoname;
-	private ProjectName projectname;
-	private TodoContent content;
 	private Project project;
 	private Todo todo;
 
 	@Before
 	public void setup() {
 		Fixtures.deleteDatabase();
-		todoname = new TodoName("タスク1");
-		projectname = new ProjectName("案件1");
-		content = new TodoContent("内容1");
+		final TodoName todoname = new TodoName("タスク1");
+		final ProjectName projectname = new ProjectName("案件1");
+		final TodoContent content = new TodoContent("内容1");
 		project = new Project(projectname).save();
+
 		todo = new Todo(project, todoname, content).save();
-		;
 
 	}
 
 	@Test
 	public void findByProjectTest() {
-		final List<Todo> todo1 = Todo.find("project = ? ", project).fetch();
+
+		final List<Todo> todoList = TodoRepo.findByProject(project);
 
 		// 1件のみのはず
-		assertThat(todo1.size(), is(1));
-
+		assertThat(todoList.size(), is(1));
+		// 想定されているレコードが取得できているか
+		assertThat(todoList.get(0), is(todo));
 	}
 }
