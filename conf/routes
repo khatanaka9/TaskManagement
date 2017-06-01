@@ -7,8 +7,6 @@ GET     /                                           Application.index
 
 # 初期画面にプロジェクト一覧画面を表示
 GET     /projectList                                ProjectController.projectList
-# タスク一覧画面を表示
-GET     /{<[0-9]+>projectId}/todoList               TodoController.todoList
 # プロジェクト登録画面を表示
 GET     /project/create                             ProjectController.create
 # プロジェクト登録処理を実施
@@ -16,7 +14,10 @@ POST    /project/create/Registration                ProjectController.createRegi
 # プロジェクト編集画面を表示
 GET     /project/{<[0-9]+>projectId}/update         ProjectController.update
 # プロジェクト編集処理を実施
-POST    /project/update                             ProjectController.updateExec
+POST    /project/{<[0-9]+>projectId}/updateExec     ProjectController.updateExec
+
+# タスク一覧画面を表示
+GET     /project/{<[0-9]+>projectId}/todoList       TodoController.todoList
 # タスク登録画面を表示
 GET     /project/{<[0-9]+>projectId}/todo/create    TodoController.create
 # タスク編集画面を表示
