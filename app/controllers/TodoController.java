@@ -39,8 +39,8 @@ public class TodoController extends Controller {
 
 	// タスク新規登録処理
 
-	public static void createRegistration(final Long projectId,
-			final String todoName, final String todoContent) {
+	public static void createExec(final Long projectId, final String todoName,
+			final String todoContent) {
 
 		final Project project = getProject(projectId);
 		final TodoName todoname = new TodoName(todoName);
@@ -52,22 +52,24 @@ public class TodoController extends Controller {
 	}
 
 	// タスク編集画面
-	public static void update(final Long projectId) {
-		// TODO hatanaka 作成中
-		render(projectId);
+	public static void update(final Long projectId, final Long todoId) {
+		final Todo todo = Todo.findById(todoId);
+		render(projectId, todo, todoId);
 	}
 
 	// タスク編集処理
-	public static void updateExec(final Long projectId, final String todoName) {
-		// TODO hatanaka 作成中
-		System.out.println(projectId);
+	public static void updateExec(final Long projectId, final Long todoId,
+			final String todoName, final String todoContent,
+			final boolean endFlag) {
 
 		final Project project = getProject(projectId);
-		project.save();
+		final Todo todo = Todo.findById(todoId);
+		todo.todoName(new TodoName(todoName));
+		todo.todoContent(new TodoContent(todoContent));
+		todo.endFlag(endFlag);
+		todo.save();
 
-		ProjectController.projectList();
-
-		render(projectId);
+		TodoController.todoList(projectId);
 
 	}
 }

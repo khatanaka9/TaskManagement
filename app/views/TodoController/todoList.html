@@ -25,16 +25,19 @@
 	  <th>#{if todo.endFlag} 完了 #{/if} #{else} 未完了 #{/else}</th>
 	  <th>${todo.todoContent.value()}</th>
 
-	  <th><a href="@{TodoController.update(projectId)}">
-	        <input type="Button" name="updateTodo" id="updateTodo" value="編集"  />
-	      </a>
+	  <th>
+	    <a href="@{TodoController.update(projectId,todo.id)}">
+	      <input type="Button" name="updateTodo" id="updateTodo" value="編集"  />
+	    </a>
 	  </th>
 	</tr>
 	#{/list}
   </table>
 
-  <a href="@{ProjectController.projectList()}"> <input
-                type="Button" name="projectList" id="projectList" value="戻る"  /></a></th>
+
 #{/if} #{else}
   <h2>データがありません</h2>
 #{/else}
+  <a href="@{ProjectController.projectList()}">
+  <input type="Button" name="projectList" id="projectList" value="戻る"  />
+  </a>

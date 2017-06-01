@@ -3,7 +3,7 @@
 <h3>タスク新規登録</h3>
 
 
-  <form action = "@{TodoController.createRegistration(projectId)}"  method= "POST">
+  <form action = "@{TodoController.createExec(projectId)}"  method= "POST">
     <label for="TodoName">タスク名: </label>
     <input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
     <div>
@@ -11,12 +11,12 @@
       <input type="textarea" name="todoContent" id="todoContent"  placeholder="タスク内容を入れてください" required/>
     </div>
     <div>
-    <input type="submit" name="TodoCreate" id="TodoCreate" value="登録する"}" />
-    <input type="reset" name="Todoreset" id="Todoreset" value="取り消し"}" />
+      <input type="submit" name="TodoCreate" id="TodoCreate" value="登録する"}" />
+      <input type="reset" name="Todoreset" id="Todoreset" value="取り消し"}" />
     </div>
-
     <div>
-      <a href="@{TodoController.todoList(projectId)}"> <input
-                type="Button" name="todoList" id="todoList" value="戻る"  /></a></th>
+      <a href="@{TodoController.todoList(projectId)}">
+        <input type="Button" name="todoList" id="todoList" value="戻る"  />
+      </a>
     </div>
   </form>

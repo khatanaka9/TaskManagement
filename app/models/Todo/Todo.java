@@ -20,17 +20,29 @@ public class Todo extends Model {
 	private final Project project;
 
 	@Column(name = "endFlag")
-	private final boolean endFlag = false;
+	private boolean endFlag = false;
 
 	@Embedded
-	private final TodoName todoName;
+	private TodoName todoName;
 	@Embedded
-	private final TodoContent todoContent;
+	private TodoContent todoContent;
 
 	public Todo(final Project project, final TodoName todoName,
 			final TodoContent todoContent) {
 		this.project = project;
 		this.todoName = todoName;
+		this.todoContent = todoContent;
+	}
+
+	public void todoName(final TodoName todoName) {
+		this.todoName = todoName;
+	}
+
+	public void endFlag(final boolean endFlag) {
+		this.endFlag = endFlag;
+	}
+
+	public void todoContent(final TodoContent todoContent) {
 		this.todoContent = todoContent;
 	}
 }

@@ -3,26 +3,27 @@
 # ~~~~
 
 # Home page
-GET     /                                           Application.index
+GET     /                                            Application.index
 
 # 初期画面にプロジェクト一覧画面を表示
-GET     /projectList                                ProjectController.projectList
+GET     /projectList                                 ProjectController.projectList
 # プロジェクト登録画面を表示
-GET     /project/create                             ProjectController.create
+GET     /project/create                              ProjectController.create
 # プロジェクト登録処理を実施
-POST    /project/createExec                        ProjectController.createExec
+POST    /project/createExec                          ProjectController.createExec
 # プロジェクト編集画面を表示
-GET     /project/{<[0-9]+>projectId}/update         ProjectController.update
+GET     /project/{<[0-9]+>projectId}/update          ProjectController.update
 # プロジェクト編集処理を実施
-POST    /project/{<[0-9]+>projectId}/updateExec     ProjectController.updateExec
+POST    /project/{<[0-9]+>projectId}/updateExec      ProjectController.updateExec
 
 # タスク一覧画面を表示
-GET     /project/{<[0-9]+>projectId}/todoList       TodoController.todoList
+GET     /project/{<[0-9]+>projectId}/todoList        TodoController.todoList
 # タスク登録画面を表示
-GET     /project/{<[0-9]+>projectId}/todo/create    TodoController.create
+GET     /project/{<[0-9]+>projectId}/todo/create     TodoController.create
 # タスク編集画面を表示
-GET     /project/{<[0-9]+>projectId}/todo/update    TodoController.update
-
+GET     /project/{<[0-9]+>projectId}/todo/update     TodoController.update
+# タスク編集処理を実施
+POST    /project/{<[0-9]+>projectId}/todo/updateExec TodoController.updateExec
 
 
 # Ignore favicon requests
