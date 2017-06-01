@@ -21,8 +21,8 @@
       <th></th>
       <th><a href="@{TodoController.todoList(project.id)}">
 				${project.projectName.value()}</a></th>
-      <th>#{if project.endFlag} 完了 #{/if} #{if !project.endFlag} 未完了
-			#{/if}</th>
+      <th>#{if project.endFlag} 完了 #{/if} #{else} 未完了
+			#{/else}</th>
 
       <th><a href="@{ProjectController.update(project.id)}">
         <input type="Button" name="UpdateProject" id="UpdateProject"

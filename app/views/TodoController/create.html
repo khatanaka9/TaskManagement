@@ -2,6 +2,7 @@
 
 <h3>タスク新規登録</h3>
 
+
   <form action = "@{TodoController.createRegistration(projectId)}"  method= "POST">
     <label for="TodoName">タスク名: </label>
     <input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
@@ -15,7 +16,7 @@
     </div>
 
     <div>
-      <a href="@{TodoController.todoList(projectid)}"> <input
+      <a href="@{TodoController.todoList(projectId)}"> <input
                 type="Button" name="todoList" id="todoList" value="戻る"  /></a></th>
     </div>
   </form>

@@ -51,12 +51,24 @@ public class TodoController extends Controller {
 		TodoController.todoList(projectId);
 	}
 
-	// プロジェクト編集画面
-	public static void update(final Long todoListid) {
+	// タスク編集画面
+	public static void update(final Long projectId) {
 		// TODO hatanaka 作成中
-		System.out.println(todoListid);
-
-		render(todoListid);
+		render(projectId);
 	}
 
+	// タスク編集処理
+	public static void updateExec(final Long projectId, final String todoName) {
+		// TODO hatanaka 作成中
+		System.out.println(projectId);
+
+		final Project project = Project.findById(projectId);
+
+		project.save();
+
+		ProjectController.projectList();
+
+		render(projectId);
+
+	}
 }

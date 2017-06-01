@@ -22,11 +22,13 @@
 	<tr>
 	  <th></th>
 	  <th>${todo.todoName.value()}</th>
-	  <th>#{if todo.endFlag} 完了 #{/if} #{if !todo.endFlag} 未完了 #{/if}</th>
+	  <th>#{if todo.endFlag} 完了 #{/if} #{else} 未完了 #{/else}</th>
 	  <th>${todo.todoContent.value()}</th>
 
-	  <th><a href="@{TodoController.update(todoList.id)}"> <input
-				type="Button" name="updateTodo" id="updateTodo" value="編集"  /></a></th>
+	  <th><a href="@{TodoController.update(projectId)}">
+	        <input type="Button" name="updateTodo" id="updateTodo" value="編集"  />
+	      </a>
+	  </th>
 	</tr>
 	#{/list}
   </table>

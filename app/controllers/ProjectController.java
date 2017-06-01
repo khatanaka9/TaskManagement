@@ -31,17 +31,15 @@ public class ProjectController extends Controller {
 	}
 
 	// プロジェクト編集画面
-	public static void update(final Long projectid) {
-		final Project project = Project.findById(projectid);
-		System.out.println(projectid);
+	public static void update(final Long projectId) {
+		final Project project = Project.findById(projectId);
+		System.out.println(projectId);
 		render(project);
 	}
 
 	// プロジェクト編集処理
 	public static void updateExec(final Long projectId,
 			final String projectName, final boolean endFlag) {
-
-		System.out.println(endFlag);
 
 		final Project project = Project.findById(projectId);
 
