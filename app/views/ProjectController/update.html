@@ -1,0 +1,29 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+
+<h3>プロジェクト編集</h3>
+
+  <form action = "@{ProjectController.updateExec()}"  method= "POST">
+    <input type="hidden" name="projectId" id="projectId" value="${project.id}"/>
+    <label for="projectName">案件名: </label>
+    <input type="text" name="projectName" id="projectName" value="${project.projectName.value()}" required/>
+    <div>
+      <label for="endFlag">完了フラグ: </label>
+      <div>
+        <label for="projectName">完了: </label>
+        <input type="radio" name="endFlag" id="endFlag" value="${project.endFlag=true}" />
+        <label for="projectName">未完了: </label>
+        <input type="radio" name="endFlag" id="endFlag" value="${project.endFlag=false}"  checked/>
+      </div>
+    </div>
+
+    <div>
+      <input type="submit" name="UpdateProject" id="UpdateProject" value="編集"}" />
+      <input type="reset" name="UpdeteProjectreset" id="UpdateProjectreset" value="取り消し"}" />
+    </div>
+    <div>
+      <a href="@{ProjectController.projectList()}"> <input
+                type="Button" name="projectList" id="projectList" value="戻る"  /></a></th>
+    </div>
+  </form>
+
+

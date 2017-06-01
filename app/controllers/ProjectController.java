@@ -8,8 +8,6 @@ import play.mvc.*;
 
 public class ProjectController extends Controller {
 
-	// TODO hatanaka newProjectはcreateに修正
-
 	// プロジェクト一覧表示
 	public static void projectList() {
 		// 一覧表示用にプロジェクトを全件取得
@@ -18,7 +16,7 @@ public class ProjectController extends Controller {
 	}
 
 	// プロジェクト新規登録画面
-	public static void projectCreate() {
+	public static void create() {
 		render();
 	}
 
@@ -33,9 +31,9 @@ public class ProjectController extends Controller {
 	}
 
 	// プロジェクト編集画面
-	public static void updateProject(final Long projectid) {
+	public static void update(final Long projectid) {
 		final Project project = Project.findById(projectid);
-
+		System.out.println(projectid);
 		render(project);
 	}
 
@@ -48,11 +46,8 @@ public class ProjectController extends Controller {
 		final Project project = Project.findById(projectId);
 
 		project.projectName(new ProjectName(projectName));
-
 		project.endFlag(endFlag);
 		project.save();
-		// TODO hatanaka フラグ編集
-		// endFlag(!project.endFlag()).save();
 
 		ProjectController.projectList();
 	}

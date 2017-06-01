@@ -11,9 +11,10 @@ public class TodoRepo {
 
 	// TODO hatanaka colletion実装後、collectionで返してあげる
 
-	public static List<Todo> findByProjectId(final Project project) {
+	public static List<Todo> findByProject(final Project project) {
+
 		// Select * From Todo Where project_id = "projectId";
 		return Todo.find("project = ? ", project).fetch();
-	}
 
+	}
 }

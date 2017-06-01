@@ -4,22 +4,23 @@ import java.util.*;
 
 import models.Project.*;
 import models.Todo.*;
+import models.Todo.repo.*;
 import models.Todo.vo.*;
 import play.mvc.*;
 
 public class TodoController extends Controller {
 
-	public static void todoList(final Long projectid) {
-		if (projectid == null) {
+	public static void todoList(final Long projectId) {
+		if (projectId == null) {
 			throw new RuntimeException("案件のIDを" + "取得できません。");
 		}
 
-		final Project project = getProject(projectid);
+		final Project project = getProject(projectId);
 
 		// タスク表示用に検索
-		final List<Todo> todoList = Todo.findAll();
+		final List<Todo> todoList = TodoRepo.findByProject(project);
 
-		render(todoList);
+		render(projectId, todoList);
 	}
 
 	private static Project getProject(final Long projectId) {
@@ -32,16 +33,15 @@ public class TodoController extends Controller {
 	}
 
 	// タスク新規登録画面
-	public static void TodoCreate(final Long projectId) {
-
+	public static void create(final Long projectId) {
 		render(projectId);
 	}
 
 	// タスク新規登録処理
+
 	public static void createRegistration(final Long projectId,
 			final String todoName, final String todoContent) {
 
-		System.out.println(projectId);
 		final Project project = Project.findById(projectId);
 		final TodoName todoname = new TodoName(todoName);
 		final TodoContent todocontent = new TodoContent(todoContent);
@@ -52,10 +52,11 @@ public class TodoController extends Controller {
 	}
 
 	// プロジェクト編集画面
-	public static void Todoupdate(final Long projectid) {
-		final Project project = Project.findById(projectid);
+	public static void update(final Long todoListid) {
+		// TODO hatanaka 作成中
+		System.out.println(todoListid);
 
-		render(project);
+		render(todoListid);
 	}
 
 }

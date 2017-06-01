@@ -2,43 +2,37 @@
 
 <h3>タスク一覧</h3>
 
-${todoList.project}
+  <div>
+    <a href="@{TodoController.create(projectId)}">
+      <input type="Button" name="createTodo" id="createTodo" value="新規登録"  />
+    </a>
+  </div>
 
-<div>
-        <a href="@{TodoController.TodoCreate(todoList.project)}">
-        <input type="Button" name="NewTodo" id="NewTodo" value="新規登録"}" />
-           </a>
-</div>
 
-${todoList.id}
 #{if todoList}
 
-<table border=1>
-	<tr>
-		<th width=30></th>
-		<th>タスク名</th>
-		<th>完了フラグ</th>
-		<th>内容</th>
+  <table border=1>
+    <tr>
+      <th width=30></th>
+	  <th>タスク名</th>
+	  <th>完了フラグ</th>
+	  <th>内容</th>
 	</tr>
 	#{list todoList, as:'todo'}
 	<tr>
-		<th></th>
-		<th>
-				${todo.todoName.value()}</th>
-		<th>#{if todo.endFlag} 完了 #{/if} #{if !todo.endFlag} 未完了
-			#{/if}</th>
-		<th>
-		${todo.todoContent.value()}</th>
+	  <th></th>
+	  <th>${todo.todoName.value()}</th>
+	  <th>#{if todo.endFlag} 完了 #{/if} #{if !todo.endFlag} 未完了 #{/if}</th>
+	  <th>${todo.todoContent.value()}</th>
 
-		<th>
-        <a href="@{TodoController.Todoupdate(todoList.id)}">
-        <input type="Button" name="UpdateTodo" id="UpdateTodo" value="編集"}" /></a>
-        </th>
-
+	  <th><a href="@{TodoController.update(todoList.id)}"> <input
+				type="Button" name="updateTodo" id="updateTodo" value="編集"  /></a></th>
 	</tr>
 	#{/list}
+  </table>
 
-</table>
+  <a href="@{ProjectController.projectList()}"> <input
+                type="Button" name="projectList" id="projectList" value="戻る"  /></a></th>
 #{/if} #{else}
-<h2>データがありません</h2>
+  <h2>データがありません</h2>
 #{/else}

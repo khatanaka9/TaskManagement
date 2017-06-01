@@ -1,0 +1,20 @@
+
+
+#{extends 'main.html' /} #{set title:'Home' /}
+
+<h3>プロジェクト新規登録</h3>
+
+  <form action = "@{ProjectController.createRegistration()}"  method= "POST">
+    <label for="projectName">案件名: </label>
+    <input type="text" name="projectName" id="projectName"  placeholder="案件名を入れてください" required/>
+    <div>
+    <input type="submit" name="NewProject" id="NewProject" value="登録する"}" />
+    <input type="reset" name="NewProjectreset" id="NewProjectreset" value="取り消し"}" />
+    </div>
+    <div>
+      <a href="@{ProjectController.projectList()}"> <input
+                type="Button" name="projectList" id="projectList" value="戻る"  /></a></th>
+    </div>
+  </form>
+
+
