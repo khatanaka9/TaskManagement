@@ -30,6 +30,11 @@
 	      <input type="Button" name="TodoUpdate" id="TodoUpdate" value="編集"  />
 	    </a>
 	  </th>
+	  <th>
+        <a href="@{TodoController.delete(todo.id)}">
+          <input type="Button" name="TodoDelete" id="TodoDelete" value="削除" onclick="Delete();" />
+        </a>
+      </th>
 	</tr>
 	#{/list}
   </table>
