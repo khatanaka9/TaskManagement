@@ -7,6 +7,12 @@
         type="Button" name="ProjectCreate" id="ProjectCreate" value="新規登録"  />
     </a>
   </div>
+#{if flash.error}
+  <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.error}</h4></div>
+#{/if}
+#{if flash.success}
+  <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.success}</h4></div>
+#{/if}
 
 #{if projectList}
 
@@ -43,9 +49,10 @@
 
       <th>
         <a href="@{ProjectController.delete(project.id)}">
-          <input type="Button" name="ProjectDelete" id="ProjectDelete" value="削除"  />
+          <input type="Button" name="ProjectDelete" id="ProjectDelete" value="削除" onclick="Delete();" />
         </a>
       </th>
+
     </tr>
     #{/list}
   </table>
@@ -54,4 +61,19 @@
 #{else}
   <h2>データがありません</h2>
 #{/else}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

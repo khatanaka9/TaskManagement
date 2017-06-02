@@ -4,6 +4,8 @@ import java.util.*;
 
 import models.Project.*;
 import models.Project.vo.*;
+import models.Todo.*;
+import models.Todo.repo.*;
 import play.mvc.*;
 
 public class ProjectController extends Controller {
@@ -60,6 +62,17 @@ public class ProjectController extends Controller {
 
 	// プロジェクト削除画面
 	public static void delete(final Long projectId) {
-		// TODO 作成中
+
+		final Project project = getProject(projectId);
+		final List<Todo> todoList = TodoRepo.findByProject(project);
+		if (todoList.isEmpty()) {
+			project.delete();
+			flash.success("削除に成功しました。");
+			ProjectController.projectList();
+		} else {
+			flash.error("関連したタスクがあるため削除できません");
+
+			ProjectController.projectList();
+		}
 	}
 }
