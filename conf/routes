@@ -15,15 +15,20 @@ POST    /project/createExec                          ProjectController.createExe
 GET     /project/{<[0-9]+>projectId}/update          ProjectController.update
 # プロジェクト編集処理を実施
 POST    /project/{<[0-9]+>projectId}/updateExec      ProjectController.updateExec
+#プロジェクト削除を表示
+GET     /project/delete                              ProjectController.delete
+
 
 # タスク一覧画面を表示
 GET     /project/{<[0-9]+>projectId}/todoList        TodoController.todoList
 # タスク登録画面を表示
 GET     /project/{<[0-9]+>projectId}/todo/create     TodoController.create
 # タスク編集画面を表示
-GET     /project/{<[0-9]+>projectId}/todo/update     TodoController.update
+GET     /project/{<[0-9]+>projectId}/todo/{<[0-9]+>todoId}/update
+                                                     TodoController.update
 # タスク編集処理を実施
-POST    /project/{<[0-9]+>projectId}/todo/updateExec TodoController.updateExec
+POST    /project/{<[0-9]+>projectId}/todo/{<[0-9]+>todoId}/updateExec
+                                                     TodoController.updateExec
 
 
 # Ignore favicon requests

@@ -2,13 +2,15 @@
 
 <h3>プロジェクト一覧</h3>
 
-#{if projectList}
-
   <div>
     <a href="@{ProjectController.create()}"> <input
-		type="Button" name="NewProject" id="NewProject" value="新規登録" }" />
+        type="Button" name="ProjectCreate" id="ProjectCreate" value="新規登録"  />
     </a>
   </div>
+
+#{if projectList}
+
+
 
   <table border=1>
     <tr>
@@ -35,7 +37,7 @@
 
       <th>
         <a href="@{ProjectController.update(project.id)}">
-          <input type="Button" name="UpdateProject" id="UpdateProject" value="編集"  />
+          <input type="Button" name="ProjectUpdate" id="ProjectUpdate" value="編集"  />
         </a>
       </th>
     </tr>

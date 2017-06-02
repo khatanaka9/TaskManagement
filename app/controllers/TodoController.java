@@ -32,6 +32,15 @@ public class TodoController extends Controller {
 		return project;
 	}
 
+	private static Todo getTodo(final Long todoId) {
+		final Todo todo = Todo.findById(todoId);
+		if (todo == null) {
+			throw new RuntimeException(String.format(
+					"タスクが取得できません。[todoId : %s]", todoId));
+		}
+		return todo;
+	}
+
 	// タスク新規登録画面
 	public static void create(final Long projectId) {
 		render(projectId);
@@ -46,30 +55,30 @@ public class TodoController extends Controller {
 		final TodoName todoname = new TodoName(todoName);
 		final TodoContent todocontent = new TodoContent(todoContent);
 
-		final Todo todo = new Todo(project, todoname, todocontent).save();
+		new Todo(project, todoname, todocontent).save();
 
 		TodoController.todoList(projectId);
 	}
 
 	// タスク編集画面
-	public static void update(final Long projectId, final Long todoId) {
-		final Todo todo = Todo.findById(todoId);
-		render(projectId, todo, todoId);
+	public static void update(final Long todoId) {
+		final Todo todo = getTodo(todoId);
+		final Long projectId = todo.getProject().id;
+		render(projectId, todo);
 	}
 
 	// タスク編集処理
-	public static void updateExec(final Long projectId, final Long todoId,
-			final String todoName, final String todoContent,
-			final boolean endFlag) {
+	public static void updateExec(final Long todoId, final String todoName,
+			final String todoContent, final boolean endFlag) {
 
-		final Project project = getProject(projectId);
-		final Todo todo = Todo.findById(todoId);
+		final Todo todo = getTodo(todoId);
+		final Project project = todo.getProject();
 		todo.todoName(new TodoName(todoName));
 		todo.todoContent(new TodoContent(todoContent));
 		todo.endFlag(endFlag);
 		todo.save();
 
-		TodoController.todoList(projectId);
+		TodoController.todoList(project.id);
 
 	}
 }

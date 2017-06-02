@@ -2,13 +2,14 @@
 
 <h3>タスク編集</h3>
 
-  <form action = "@{TodoController.updateExec(projectId,todoId)}"  method= "POST">
+  <form action = "@{TodoController.updateExec(todo.id)}"  method= "POST">
 
     <label for="TodoName">タスク名: </label>
     <input type="text" name="todoName" id="todoName" value="${todo.todoName.value()}" placeholder="タスク名を入れてください" required/>
     <div>
       <label for="TodoContent">タスク内容: </label>
-      <input type="textarea" name="todoContent" id="todoContent"  value="${todo.todoContent.value()}" placeholder="タスク内容を入れてください" required/>
+      <textarea rows=2 cols=30 name="todoContent" id="todoContent"  value="${todo.todoContent.value()}" placeholder="タスク内容を入れてください" required/>
+      </textarea>
     </div>
     <div>
       <label for="endFlag">完了フラグ: </label>
@@ -21,8 +22,8 @@
     </div>
 
     <div>
-      <input type="submit" name="TodoCreate" id="TodoCreate" value="編集"}" />
-      <input type="reset" name="Todoreset" id="Todoreset" value="取り消し"}" />
+      <input type="submit" name="TodoUpdate" id="TodoUpdate" value="登録する"}" />
+      <input type="reset" name="TodoUpdatereset" id="TodoUpdatereset" value="取り消し"}" />
     </div>
     <a href="@{TodoController.todoList(projectId)}">
       <input type="Button" name="todoList" id="todoList" value="戻る"  />

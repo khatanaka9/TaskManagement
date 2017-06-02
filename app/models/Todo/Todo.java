@@ -45,4 +45,9 @@ public class Todo extends Model {
 	public void todoContent(final TodoContent todoContent) {
 		this.todoContent = todoContent;
 	}
+
+	public Project getProject() {
+		return project;
+	}
+
 }

@@ -4,7 +4,7 @@
 
   <div>
     <a href="@{TodoController.create(projectId)}">
-      <input type="Button" name="createTodo" id="createTodo" value="新規登録"  />
+      <input type="Button" name="TodoCreate" id="TodoCreate" value="新規登録"  />
     </a>
   </div>
 
@@ -26,8 +26,8 @@
 	  <th>${todo.todoContent.value()}</th>
 
 	  <th>
-	    <a href="@{TodoController.update(projectId,todo.id)}">
-	      <input type="Button" name="updateTodo" id="updateTodo" value="編集"  />
+	    <a href="@{TodoController.update(todo.id)}">
+	      <input type="Button" name="TodoUpdate" id="TodoUpdate" value="編集"  />
 	    </a>
 	  </th>
 	</tr>
