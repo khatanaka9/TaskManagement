@@ -63,7 +63,7 @@ public class TodoController extends Controller {
 	// タスク編集画面
 	public static void update(final Long todoId) {
 		final Todo todo = getTodo(todoId);
-		final Long projectId = todo.getProject().id;
+		final Long projectId = todo.getProject().getId();
 		render(projectId, todo);
 	}
 
@@ -72,13 +72,13 @@ public class TodoController extends Controller {
 			final String todoContent, final boolean endFlag) {
 
 		final Todo todo = getTodo(todoId);
-		final Project project = todo.getProject();
+		final Long projectId = todo.getProject().getId();
 		todo.todoName(new TodoName(todoName));
 		todo.todoContent(new TodoContent(todoContent));
 		todo.endFlag(endFlag);
 		todo.save();
 
-		TodoController.todoList(project.id);
+		TodoController.todoList(projectId);
 
 	}
 }

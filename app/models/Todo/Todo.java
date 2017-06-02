@@ -17,7 +17,7 @@ public class Todo extends Model {
 	@JoinColumn(name = "project")
 	@Index(name = "idx_Todo_projectId")
 	@ForeignKey(name = "fk_Todo_projectId")
-	private final Project project;
+	private final Project projectId;
 
 	@Column(name = "endFlag")
 	private boolean endFlag = false;
@@ -27,9 +27,9 @@ public class Todo extends Model {
 	@Embedded
 	private TodoContent todoContent;
 
-	public Todo(final Project project, final TodoName todoName,
+	public Todo(final Project projectId, final TodoName todoName,
 			final TodoContent todoContent) {
-		this.project = project;
+		this.projectId = projectId;
 		this.todoName = todoName;
 		this.todoContent = todoContent;
 	}
@@ -47,7 +47,7 @@ public class Todo extends Model {
 	}
 
 	public Project getProject() {
-		return project;
+		return projectId;
 	}
 
 }

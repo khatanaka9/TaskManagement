@@ -24,10 +24,10 @@ public class ProjectTest extends UnitTest {
 	public void testConstructor() {
 
 		final Project project = new Project(projectname).save();
-		final List<Project> project1 = project.findAll();
+		final List<Project> projectList = project.findAll();
 
 		// 1件のみのはず
-		assertThat(project1.size(), is(1));
+		assertThat(projectList.size(), is(1));
 
 	}
 }

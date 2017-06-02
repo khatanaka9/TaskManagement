@@ -40,6 +40,12 @@
           <input type="Button" name="ProjectUpdate" id="ProjectUpdate" value="編集"  />
         </a>
       </th>
+
+      <th>
+        <a href="@{ProjectController.delete(project.id)}">
+          <input type="Button" name="ProjectDelete" id="ProjectDelete" value="削除"  />
+        </a>
+      </th>
     </tr>
     #{/list}
   </table>

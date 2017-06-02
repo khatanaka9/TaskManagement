@@ -34,7 +34,7 @@ public class ProjectController extends Controller {
 
 		final ProjectName projectname = new ProjectName(projectName);
 
-		final Project project = new Project(projectname).save();
+		new Project(projectname).save();
 
 		ProjectController.projectList();
 	}
@@ -56,5 +56,10 @@ public class ProjectController extends Controller {
 		project.save();
 
 		ProjectController.projectList();
+	}
+
+	// プロジェクト削除画面
+	public static void delete(final Long projectId) {
+		// TODO 作成中
 	}
 }
