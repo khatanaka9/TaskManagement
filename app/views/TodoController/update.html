@@ -11,20 +11,13 @@
       <textarea rows=2 cols=30 name="todoContent" id="todoContent"  value="${todo.todoContent.value()}" placeholder="タスク内容を入れてください" required/>
       </textarea>
     </div>
+    <label for="endFlag">完了フラグ: </label>
     <div>
-      #{if todo.endFlag == true}
-            <label for="endFlag">完了: </label>
-            <input type="radio" name="endFlag" id="endFlag" value="true"  checked/>
-            <label for="endFlag">未完了: </label>
-            <input type="radio" name="endFlag" id="endFlag" value="false" />
-          #{/if}
-          #{else}
-            <label for="endFlag">完了: </label>
-            <input type="radio" name="endFlag" id="endFlag" value="true" />
-            <label for="endFlag">未完了: </label>
-            <input type="radio" name="endFlag" id="endFlag" value="false"  checked/>
-          #{/else}
-
+      <label for="endFlag">完了: </label>
+      <input type="radio" name="endFlag" id="endFlag" value="true" #{if todo.endFlag} checked #{/if}/>
+      <label for="endFlag">未完了: </label>
+      <input type="radio" name="endFlag" id="endFlag" value="false" #{if !todo.endFlag} checked #{/if}/>
+    </div>
     <div>
       <input type="submit" name="TodoUpdate" id="TodoUpdate" value="登録する" />
       <input type="reset" name="TodoUpdatereset" id="TodoUpdatereset" value="取り消し"}" />
