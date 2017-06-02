@@ -15,7 +15,7 @@ POST    /project/createExec                          ProjectController.createExe
 GET     /project/{<[0-9]+>projectId}/update          ProjectController.update
 # プロジェクト編集処理を実施
 POST    /project/{<[0-9]+>projectId}/updateExec      ProjectController.updateExec
-#プロジェクト削除を表示
+#プロジェクト削除
 GET     /project/delete                              ProjectController.delete
 
 

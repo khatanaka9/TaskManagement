@@ -6,6 +6,12 @@
         <h2>タスク管理アプリ</h2>
     </head>
     <body>
-        #{doLayout /}
+      #{if flash.error}
+        <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.error}</h4></div>
+      #{/if}
+      #{if flash.success}
+        <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.success}</h4></div>
+      #{/if}
+      #{doLayout /}
     </body>
 </html>

@@ -37,7 +37,7 @@ public class ProjectController extends Controller {
 		final ProjectName projectname = new ProjectName(projectName);
 
 		new Project(projectname).save();
-
+		flash.success("登録に成功しました。");
 		ProjectController.projectList();
 	}
 
@@ -56,7 +56,7 @@ public class ProjectController extends Controller {
 		project.projectName(new ProjectName(projectName));
 		project.endFlag(endFlag);
 		project.save();
-
+		flash.success("更新に成功しました。");
 		ProjectController.projectList();
 	}
 

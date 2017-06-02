@@ -56,7 +56,7 @@ public class TodoController extends Controller {
 		final TodoContent todocontent = new TodoContent(todoContent);
 
 		new Todo(project, todoname, todocontent).save();
-
+		flash.success("登録に成功しました。");
 		TodoController.todoList(projectId);
 	}
 
@@ -77,8 +77,18 @@ public class TodoController extends Controller {
 		todo.todoContent(new TodoContent(todoContent));
 		todo.endFlag(endFlag);
 		todo.save();
-
+		flash.success("更新に成功しました。");
 		TodoController.todoList(projectId);
 
+	}
+
+	// プロジェクト削除処理
+	public static void delete(final Long todoId) {
+
+		final Todo todo = getTodo(todoId);
+		final Long projectId = todo.getProject().getId();
+		todo.delete();
+		flash.success("削除に成功しました。");
+		TodoController.todoList(projectId);
 	}
 }
