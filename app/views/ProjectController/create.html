@@ -2,19 +2,34 @@
 
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>プロジェクト新規登録</h3>
+<h3><b>プロジェクト新規登録</b></h3>
 
   <form action = "@{ProjectController.createExec()}"  method= "POST">
+    <span class ="glyphicon glyphicon-tag"></span>
     <label for="projectName">案件名: </label>
-    <input type="text" name="projectName" id="projectName"  placeholder="案件名を入れてください" required/>
+
     <div>
-      <input type="submit" name="ProjectCreate" id="ProjectCreate" value="登録する" />
-      <input type="reset" name="ProjectCretaereset" id="ProjectCreatereset" value="取り消し" />
+      <input type="text" name="projectName" id="projectName"  placeholder="案件名を入れてください" required/>
     </div>
+    <br>
+    <div>
+      <button type = "submit" class = "btn btn-primary" name="ProjectCreate" id="ProjectCreate" >
+        <span class ="glyphicon glyphicon-pencil"></span>
+        &nbsp;登録する
+      </button>
+      <button type ="reset" class = "btn btn-primary" name="ProjectCretaereset" id="ProjectCreatereset">
+        <span class ="glyphicon glyphicon-remove"></span>
+        &nbsp;取り消し
+      </button>
+    </div>
+
     <div>
       <a href="@{ProjectController.projectList()}">
-       <input type="Button" name="projectList" id="projectList" value="戻る"  />
-       </a>
+        <button type="Button" class ="btn btn-success" name="projectList" id="projectList">
+          <span class ="glyphicon glyphicon-arrow-left"></span>
+          &nbsp;プロジェクト一覧に戻る
+        </button>
+      </a>
     </div>
   </form>
 

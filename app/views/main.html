@@ -3,11 +3,18 @@
 <html>
     <head>
 
+<!-- BootstrapのCSS読み込み -->
+    <link href="@{'/public/javascripts/bootstrap-3.3.2/docs/dist/css/bootstrap.min.css'}" rel="stylesheet">
+    <!-- jQuery読み込み -->
+    <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="@{'/public/javascripts/bootstrap-3.3.2/docs/dist/js/bootstrap.min.js'}"></script>
         <h2>タスク管理アプリ</h2>
     </head>
     <body>
+
       #{if flash.error}
-        <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.error}</h4></div>
+        <div class=“alert  alert-danger hidden”><h4 style=“margin-bottom : 0px;“>${flash.error}</h4></div>
       #{/if}
       #{if flash.success}
         <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.success}</h4></div>

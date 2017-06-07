@@ -1,23 +1,38 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>タスク新規登録</h3>
+<h3><b>タスク新規登録</b></h3>
 
 
   <form action = "@{TodoController.createExec(projectId)}"  method= "POST">
+    <span class ="glyphicon glyphicon-tag"></span>
     <label for="TodoName">タスク名: </label>
+    <br>
     <input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
     <div>
+      <span class ="glyphicon glyphicon-th"></span>
       <label for="TodoContent">タスク内容: </label>
+      <br>
       <textarea rows=2 cols=30 name="todoContent" id="todoContent"  placeholder="タスク内容を入れてください" required/>
       </textarea>
+
     </div>
+    <br>
     <div>
-      <input type="submit" name="TodoCreate" id="TodoCreate" value="登録する" />
-      <input type="reset" name="Todoreset" id="Todoreset" value="取り消し" />
+      <button type = "submit" class = "btn btn-primary" name="TodoCreate" id="TodoCreate" >
+        <span class ="glyphicon glyphicon-pencil"></span>
+        &nbsp;登録する
+      </button>
+      <button type ="reset" class = "btn btn-primary" name="Todoreset" id="Todoreset">
+        <span class ="glyphicon glyphicon-remove"></span>
+        &nbsp;取り消し
+      </button>
     </div>
     <div>
       <a href="@{TodoController.todoList(projectId)}">
-        <input type="Button" name="todoList" id="todoList" value="戻る"  />
+        <button type="Button" class ="btn btn-success" name="todoList" id="todoList">
+          <span class ="glyphicon glyphicon-arrow-left"></span>
+          &nbsp;タスク一覧に戻る
+        </button>
       </a>
     </div>
   </form>

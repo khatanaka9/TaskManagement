@@ -1,10 +1,13 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>プロジェクト一覧</h3>
+<h3><b>プロジェクト一覧</b></h3>
 
   <div>
-    <a href="@{ProjectController.create()}"> <input
-        type="Button" name="ProjectCreate" id="ProjectCreate" value="新規登録"  />
+    <a href="@{ProjectController.create()}">
+      <button class=" btn btn-primary" name="ProjectCreate" id="ProjectCreate">
+            <span class="glyphicon glyphicon-pencil"></span>
+          &nbsp;新規登録
+          </button>
     </a>
   </div>
 
@@ -12,15 +15,15 @@
 
 
 
-  <table border=1>
+  <table class="table">
     <tr>
-      <th width=30></th>
-      <th>案件名</th>
-      <th>完了フラグ</th>
+      <th><span class="glyphicon glyphicon-tag"></span>案件名</th>
+      <th><span class="glyphicon glyphicon-flag"></span>完了フラグ</th>
+      <th><span class="glyphicon glyphicon-th"></span>ボタン</th>
     </tr>
     #{list items:projectList, as:'project'}
+    <!-- projectListをcollectionにする。collection.list -->
     <tr>
-      <th></th>
       <th>
         <a href="@{TodoController.todoList(project.id)}">
           ${project.projectName.value()}
@@ -37,23 +40,25 @@
 
       <th>
         <a href="@{ProjectController.update(project.id)}">
-          <input type="Button" name="ProjectUpdate" id="ProjectUpdate" value="編集"  />
+          <button class=" btn btn-info" name="ProjectUpdate" id="ProjectUpdate">
+            <span class="glyphicon glyphicon-retweet"></span>
+          &nbsp;編集
+          </button>
         </a>
-      </th>
-
-      <th>
         <a href="@{ProjectController.delete(project.id)}">
-          <input type="Button" name="ProjectDelete" id="ProjectDelete" value="削除" onclick="Delete();" />
+          <button class=" btn btn-info" name="ProjectDelete" id="ProjectDelete" onclick="Delete();">
+            <span class="glyphicon glyphicon-trash"></span>
+          &nbsp;削除
+          </button>
         </a>
       </th>
-
     </tr>
     #{/list}
   </table>
 
 #{/if}
 #{else}
-  <h2>データがありません</h2>
+  <h2><b>データがありません</b></h2>
 #{/else}
 
 

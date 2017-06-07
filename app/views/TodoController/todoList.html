@@ -1,38 +1,44 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-<h3>タスク一覧</h3>
+<h3><b>タスク一覧</b></h3>
 
   <div>
     <a href="@{TodoController.create(projectId)}">
-      <input type="Button" name="TodoCreate" id="TodoCreate" value="新規登録"  />
+      <button class=" btn btn-primary" name="TodoCreate" id="TodoCreate">
+        <span class="glyphicon glyphicon-pencil"></span>
+        &nbsp;新規登録
+      </button>
     </a>
   </div>
 
 
 #{if todoList}
 
-  <table border=1>
+  <table class="table">
     <tr>
-      <th width=30></th>
-	  <th>タスク名</th>
-	  <th>完了フラグ</th>
-	  <th>内容</th>
+	  <th><span class="glyphicon glyphicon-tag"></span>タスク名</th>
+	  <th><span class="glyphicon glyphicon-flag"></span>完了フラグ</th>
+	  <th><span class="glyphicon glyphicon-comment"></span>内容</th>
+	  <th><span class="glyphicon glyphicon-th"></span>ボタン</th>
 	</tr>
 	#{list todoList, as:'todo'}
 	<tr>
-	  <th></th>
 	  <th>${todo.todoName.value()}</th>
 	  <th>#{if todo.endFlag} 完了 #{/if} #{else} 未完了 #{/else}</th>
 	  <th>${todo.todoContent.value()}</th>
 
 	  <th>
 	    <a href="@{TodoController.update(todo.id)}">
-	      <input type="Button" name="TodoUpdate" id="TodoUpdate" value="編集"  />
+	      <button class=" btn btn-info" name="TodoUpdate" id="TodoUpdate">
+            <span class="glyphicon glyphicon-retweet"></span>
+            &nbsp;編集
+          </button>
 	    </a>
-	  </th>
-	  <th>
         <a href="@{TodoController.delete(todo.id)}">
-          <input type="Button" name="TodoDelete" id="TodoDelete" value="削除" onclick="Delete();" />
+          <button class=" btn btn-info" name="TodoDelete" id="TodoDelete" onclick="Delete();">
+            <span class="glyphicon glyphicon-trash"></span>
+            &nbsp;削除
+          </button>
         </a>
       </th>
 	</tr>
@@ -41,8 +47,11 @@
 
 
 #{/if} #{else}
-  <h2>データがありません</h2>
+  <h2><b>データがありません</b></h2>
 #{/else}
   <a href="@{ProjectController.projectList()}">
-  <input type="Button" name="projectList" id="projectList" value="戻る"  />
+    <button type="Button" class ="btn btn-success" name="projectList" id="projectList">
+      <span class ="glyphicon glyphicon-arrow-left"></span>
+      &nbsp;プロジェクト一覧に戻る
+    </button>
   </a>
