@@ -3,36 +3,39 @@
 <h3><b>プロジェクト編集</b></h3>
 
   <form action = "@{ProjectController.updateExec()}"  method= "POST">
+    &emsp;
     <input type="hidden" name="projectId" id="projectId" value="${project.id}"/>
     <label for="projectName">案件名: </label>
     <br>
+    &emsp;
     <input type="text" name="projectName" id="projectName" value="${project.projectName.value()}" required/>
     <div>
     <br>
+      &emsp;
       <span class="glyphicon glyphicon-flag"></span>
       <label for="endFlag">完了フラグ: </label>
-        <div>
-          <label for="endFlag">完了: </label>
-          <input type="radio" name="endFlag" id="endFlag" value="true" #{if project.endFlag} checked #{/if}/>
-          <label for="endFlag">未完了: </label>
-          <input type="radio" name="endFlag" id="endFlag" value="false" #{if !project.endFlag} checked #{/if}/>
-        </div>
+      <div>
+        &emsp;
+        <label for="endFlag">完了: </label>
+        <input type="radio" name="endFlag" id="endFlag" value="true" #{if project.endFlag} checked #{/if}/>
+        <label for="endFlag">未完了: </label>
+        <input type="radio" name="endFlag" id="endFlag" value="false" #{if !project.endFlag} checked #{/if}/>
+      </div>
     </div>
     <div>
-
+      &emsp;
       <button type = "submit" class = "btn btn-primary" name="ProjectUpdate" id="ProjectUpdate" >
         <span class ="glyphicon glyphicon-pencil"></span>
         &nbsp;登録する
       </button>
-
       <button type ="reset" class = "btn btn-primary" name="ProjectUpdetereset" id="ProjectUpdatereset">
         <span class ="glyphicon glyphicon-remove"></span>
         &nbsp;取り消し
       </button>
-
     </div>
     <div>
       <a href="@{ProjectController.projectList()}">
+        &emsp;
         <button type="Button" class ="btn btn-success" name="projectList" id="projectList">
           <span class ="glyphicon glyphicon-arrow-left"></span>
           &nbsp;プロジェクト一覧に戻る

@@ -3,28 +3,28 @@
 <h3><b>タスク編集</b></h3>
 
   <form action = "@{TodoController.updateExec(todo.id)}"  method= "POST">
-    <span class ="glyphicon glyphicon-tag"></span>
+    &emsp;<span class ="glyphicon glyphicon-tag"></span>
     <label for="TodoName">タスク名: </label>
     <br>
-    <input type="text" name="todoName" id="todoName" value="${todo.todoName.value()}" placeholder="タスク名を入れてください" required/>
+    &emsp;<input type="text" name="todoName" id="todoName" value="${todo.todoName.value()}" placeholder="タスク名を入れてください" required/>
     <div>
-      <span class ="glyphicon glyphicon-th"></span>
+      &emsp;<span class ="glyphicon glyphicon-th"></span>
       <label for="TodoContent">タスク内容: </label>
       <br>
-      <textarea rows=2 cols=30 name="todoContent" id="todoContent"  value="${todo.todoContent.value()}" placeholder="タスク内容を入れてください" required/>
+      &emsp;<textarea rows=2 cols=30 name="todoContent" id="todoContent"  value="${todo.todoContent.value()}" placeholder="タスク内容を入れてください" required/>
       </textarea>
     </div>
     <br>
-    <span class="glyphicon glyphicon-flag"></span>
+    &emsp;<span class="glyphicon glyphicon-flag"></span>
     <label for="endFlag">完了フラグ: </label>
     <div>
-      <label for="endFlag">完了: </label>
+      &emsp;<label for="endFlag">完了: </label>
       <input type="radio" name="endFlag" id="endFlag" value="true" #{if todo.endFlag} checked #{/if}/>
       <label for="endFlag">未完了: </label>
       <input type="radio" name="endFlag" id="endFlag" value="false" #{if !todo.endFlag} checked #{/if}/>
     </div>
     <div>
-      <button type = "submit" class = "btn btn-primary" name="TodoUpdate" id="TodoUpdate" >
+      &emsp;<button type = "submit" class = "btn btn-primary" name="TodoUpdate" id="TodoUpdate" >
         <span class ="glyphicon glyphicon-pencil"></span>
         &nbsp;登録する
       </button>
@@ -34,7 +34,7 @@
       </button>
     </div>
     <a href="@{TodoController.todoList(projectId)}">
-      <button type="Button" class ="btn btn-success" name="todoList" id="todoList">
+      &emsp;<button type="Button" class ="btn btn-success" name="todoList" id="todoList">
         <span class ="glyphicon glyphicon-arrow-left"></span>
         &nbsp;タスク一覧に戻る
       </button>

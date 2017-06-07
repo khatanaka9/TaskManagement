@@ -4,21 +4,20 @@
 
 
   <form action = "@{TodoController.createExec(projectId)}"  method= "POST">
-    <span class ="glyphicon glyphicon-tag"></span>
-    <label for="TodoName">タスク名: </label>
+    &emsp;<span class ="glyphicon glyphicon-tag"></span>
+    <label for="TodoName">タスク名: &nbsp;</label>
     <br>
-    <input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
+    &emsp;<input type="text" name="todoName" id="todoName"  placeholder="タスク名を入れてください" required/>
     <div>
-      <span class ="glyphicon glyphicon-th"></span>
+      &emsp;<span class ="glyphicon glyphicon-th"></span>
       <label for="TodoContent">タスク内容: </label>
       <br>
-      <textarea rows=2 cols=30 name="todoContent" id="todoContent"  placeholder="タスク内容を入れてください" required/>
+      &emsp;<textarea rows=2 cols=30 name="todoContent" id="todoContent"  placeholder="タスク内容を入れてください" required/>
       </textarea>
-
     </div>
     <br>
     <div>
-      <button type = "submit" class = "btn btn-primary" name="TodoCreate" id="TodoCreate" >
+      &emsp;<button type = "submit" class = "btn btn-primary" name="TodoCreate" id="TodoCreate" >
         <span class ="glyphicon glyphicon-pencil"></span>
         &nbsp;登録する
       </button>
@@ -29,7 +28,7 @@
     </div>
     <div>
       <a href="@{TodoController.todoList(projectId)}">
-        <button type="Button" class ="btn btn-success" name="todoList" id="todoList">
+        &emsp;<button type="Button" class ="btn btn-success" name="todoList" id="todoList">
           <span class ="glyphicon glyphicon-arrow-left"></span>
           &nbsp;タスク一覧に戻る
         </button>

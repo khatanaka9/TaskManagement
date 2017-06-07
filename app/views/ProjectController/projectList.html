@@ -5,15 +5,13 @@
   <div>
     <a href="@{ProjectController.create()}">
       <button class=" btn btn-primary" name="ProjectCreate" id="ProjectCreate">
-            <span class="glyphicon glyphicon-pencil"></span>
-          &nbsp;新規登録
-          </button>
+        <span class="glyphicon glyphicon-pencil"></span>
+        &nbsp;新規登録
+      </button>
     </a>
   </div>
 
 #{if projectList}
-
-
 
   <table class="table">
     <tr>
@@ -37,18 +35,17 @@
           未完了
         #{/else}
       </th>
-
       <th>
         <a href="@{ProjectController.update(project.id)}">
           <button class=" btn btn-info" name="ProjectUpdate" id="ProjectUpdate">
             <span class="glyphicon glyphicon-retweet"></span>
-          &nbsp;編集
+            &nbsp;編集
           </button>
         </a>
         <a href="@{ProjectController.delete(project.id)}">
           <button class=" btn btn-info" name="ProjectDelete" id="ProjectDelete" onclick="Delete();">
             <span class="glyphicon glyphicon-trash"></span>
-          &nbsp;削除
+            &nbsp;削除
           </button>
         </a>
       </th>
@@ -58,7 +55,7 @@
 
 #{/if}
 #{else}
-  <h2><b>データがありません</b></h2>
+  <h2 class="text-danger"><b>データがありません</b></h2>
 #{/else}
 
 

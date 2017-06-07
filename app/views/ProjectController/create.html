@@ -5,14 +5,16 @@
 <h3><b>プロジェクト新規登録</b></h3>
 
   <form action = "@{ProjectController.createExec()}"  method= "POST">
+    &emsp;
     <span class ="glyphicon glyphicon-tag"></span>
     <label for="projectName">案件名: </label>
-
     <div>
+      &emsp;
       <input type="text" name="projectName" id="projectName"  placeholder="案件名を入れてください" required/>
     </div>
     <br>
     <div>
+      &emsp;
       <button type = "submit" class = "btn btn-primary" name="ProjectCreate" id="ProjectCreate" >
         <span class ="glyphicon glyphicon-pencil"></span>
         &nbsp;登録する
@@ -22,9 +24,9 @@
         &nbsp;取り消し
       </button>
     </div>
-
     <div>
       <a href="@{ProjectController.projectList()}">
+        &emsp;
         <button type="Button" class ="btn btn-success" name="projectList" id="projectList">
           <span class ="glyphicon glyphicon-arrow-left"></span>
           &nbsp;プロジェクト一覧に戻る

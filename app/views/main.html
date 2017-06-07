@@ -9,15 +9,15 @@
     <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"></script>
         <script src="http://code.jquery.com/jquery.js"></script>
     <script src="@{'/public/javascripts/bootstrap-3.3.2/docs/dist/js/bootstrap.min.js'}"></script>
-        <h2>タスク管理アプリ</h2>
+        <h2 class="text-info">タスク管理アプリ</h2>
     </head>
     <body>
 
       #{if flash.error}
-        <div class=“alert  alert-danger hidden”><h4 style=“margin-bottom : 0px;“>${flash.error}</h4></div>
+        <div class=“alert  alert-danger hidden”><h3 class="text-danger" style=“margin-bottom : 0px;“>${flash.error}</h3></div>
       #{/if}
       #{if flash.success}
-        <div class=“alert alert-danger hidden”><h4 style=“margin-bottom: 0px;“>${flash.success}</h4></div>
+        <div class=“alert alert-danger hidden”><h3 class="text-success" style=“margin-bottom: 0px;“>${flash.success}</h3></div>
       #{/if}
       #{doLayout /}
     </body>
